@@ -4,6 +4,7 @@ vim.g.maplocalleader = "\\"
 local opt = vim.opt
 local cmd = vim.cmd
 local diagnostic = vim.diagnostic.config
+opt.clipboard = "unnamedplus"
 opt.guicursor = "n-v-c-i:block-blinkwait1000-blinkon500-blinkoff500";
 opt.cursorline = true
 opt.expandtab = true
