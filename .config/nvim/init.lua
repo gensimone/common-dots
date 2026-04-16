@@ -43,6 +43,28 @@ vim.pack.add({
     "https://github.com/smoka7/hop.nvim",
     "https://github.com/stevearc/oil.nvim",
     "https://github.com/xiyaowong/transparent.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/hrsh7th/cmp-nvim-lsp",
+    "https://github.com/hrsh7th/cmp-buffer",
+    "https://github.com/hrsh7th/cmp-path",
+    "https://github.com/hrsh7th/cmp-cmdline",
+    "https://github.com/hrsh7th/nvim-cmp"
+})
+
+local cmp = require("cmp")
+require("cmp").setup({
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered()
+    },
+    mapping = cmp.mapping.preset.insert({
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({{ name = "nvim_lsp" }})
 })
 
 require("oil").setup({
@@ -112,7 +134,7 @@ require("telescope").setup {
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local telescope_builtin = require('telescope.builtin')
+local telescope_builtin = require("telescope.builtin")
 
 keymap("n", "<leader>bd", ":bd<CR>")
 keymap("n", "<leader>n", ":bn<CR>")
