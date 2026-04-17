@@ -67,6 +67,19 @@ require("cmp").setup({
     sources = cmp.config.sources({{ name = "nvim_lsp" }})
 })
 
+require("transparent").setup({
+  groups = {
+    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+    'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+    'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+    'EndOfBuffer',
+  },
+  extra_groups = {},
+  exclude_groups = {},
+  on_clear = function() end,
+})
+
 require("oil").setup({
     watch_for_changes = true,
     default_file_explorer = true,
