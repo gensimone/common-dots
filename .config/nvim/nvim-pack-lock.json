@@ -24,6 +24,10 @@
       "rev": "707049feaca9ae65abb3696eff9aefc7879e66aa",
       "src": "https://github.com/smoka7/hop.nvim"
     },
+    "modus-themes.nvim": {
+      "rev": "17a64464c27c1be605adca13dbe48f2f402fe107",
+      "src": "https://github.com/miikanissi/modus-themes.nvim"
+    },
     "multiple-cursors.nvim": {
       "rev": "8d410c06fad32cc0e3849318e056b308fbaafede",
       "src": "https://github.com/brenton-leighton/multiple-cursors.nvim"
