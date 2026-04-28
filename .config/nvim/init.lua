@@ -25,11 +25,6 @@ opt.undofile = true
 opt.updatetime = 300
 opt.wrap = false
 
-cmd("set noshowmode")
-cmd("set noshowcmd")
-cmd("set noruler")
-cmd("colorscheme lunaperche")
-
 diagnostic({ underline = false })
 
 vim.pack.add({
@@ -37,18 +32,57 @@ vim.pack.add({
     "https://github.com/aserowy/tmux.nvim",
     "https://github.com/brenton-leighton/multiple-cursors.nvim",
     "https://github.com/ej-shafran/compile-mode.nvim",
+    "https://github.com/hrsh7th/cmp-buffer",
+    "https://github.com/hrsh7th/cmp-cmdline",
+    "https://github.com/hrsh7th/cmp-nvim-lsp",
+    "https://github.com/hrsh7th/cmp-path",
+    "https://github.com/hrsh7th/nvim-cmp",
+    "https://github.com/miikanissi/modus-themes.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/smoka7/hop.nvim",
     "https://github.com/stevearc/oil.nvim",
     "https://github.com/xiyaowong/transparent.nvim",
-    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/hrsh7th/cmp-nvim-lsp",
-    "https://github.com/hrsh7th/cmp-buffer",
-    "https://github.com/hrsh7th/cmp-path",
-    "https://github.com/hrsh7th/cmp-cmdline",
-    "https://github.com/hrsh7th/nvim-cmp"
+})
+
+require("modus-themes").setup({
+	-- Theme comes in two styles `modus_operandi` and `modus_vivendi`
+	-- `auto` will automatically set style based on background set with vim.o.background
+	style = "auto",
+
+	variants = {
+		modus_operandi = "default", -- Set variant for `modus_operandi` style
+		modus_vivendi = "default", -- Set variant for `modus_vivendi` style
+	},
+
+	transparent = false, -- Transparent background (as supported by the terminal)
+	dim_inactive = false, -- "non-current" windows are dimmed
+	hide_inactive_statusline = false, -- Hide statuslines on inactive windows. Works with the standard **StatusLine**, **LuaLine** and **mini.statusline**
+	line_nr_column_background = true, -- Distinct background colors in line number column. `false` will disable background color and fallback to Normal background
+	sign_column_background = true, -- Distinct background colors in sign column. `false` will disable background color and fallback to Normal background
+	styles = {
+		-- Style to be applied to different syntax groups
+		-- Value is any valid attr-list value for `:help nvim_set_hl`
+		comments = { italic = true },
+		keywords = { italic = true },
+		functions = {},
+		variables = {},
+	},
+
+	--- You can override specific color groups to use other groups or a hex color
+	--- Function will be called with a ColorScheme table
+	--- Refer to `extras/lua/modus_operandi.lua` or `extras/lua/modus_vivendi.lua` for the ColorScheme table
+	---@param colors ColorScheme
+	on_colors = function(colors) end,
+
+	--- You can override specific highlights to use other groups or a hex color
+	--- Function will be called with a Highlights and ColorScheme table
+	--- Refer to `extras/lua/modus_operandi.lua` or `extras/lua/modus_vivendi.lua` for the Highlights and ColorScheme table
+	---@param highlights Highlights
+	---@param colors ColorScheme
+	on_highlights = function(highlights, colors) end,
 })
 
 local cmp = require("cmp")
@@ -232,3 +266,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
+
+cmd("set noshowmode")
+cmd("set noshowcmd")
+cmd("set noruler")
+cmd("colorscheme modus")
