@@ -1,8 +1,12 @@
 .cache/*
 .cargo/*
 .local/state/*
+.local/share/*
 .rustup/*
+.steam/*
+.npm/*
 
+go/*
 documents/*
 external/*
 music/*
