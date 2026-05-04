@@ -39,7 +39,6 @@ vim.pack.add({
     "https://github.com/hrsh7th/nvim-cmp",
     "https://github.com/miikanissi/modus-themes.nvim",
     "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/smoka7/hop.nvim",
@@ -57,9 +56,9 @@ require("modus-themes").setup({
 		modus_vivendi = "default", -- Set variant for `modus_vivendi` style
 	},
 
-	transparent = false, -- Transparent background (as supported by the terminal)
+	transparent = true, -- Transparent background (as supported by the terminal)
 	dim_inactive = false, -- "non-current" windows are dimmed
-	hide_inactive_statusline = false, -- Hide statuslines on inactive windows. Works with the standard **StatusLine**, **LuaLine** and **mini.statusline**
+	hide_inactive_statusline = true, -- Hide statuslines on inactive windows. Works with the standard **StatusLine**, **LuaLine** and **mini.statusline**
 	line_nr_column_background = true, -- Distinct background colors in line number column. `false` will disable background color and fallback to Normal background
 	sign_column_background = true, -- Distinct background colors in sign column. `false` will disable background color and fallback to Normal background
 	styles = {
@@ -148,7 +147,7 @@ require("multiple-cursors").setup({})
 require("neogit").setup({})
 require("tmux").setup({})
 require("telescope").setup {
-    defaults = require("telescope.themes").get_ivy {
+    defaults = require("telescope.themes").get_dropdown {
         initial_mode = "insert",
         mappings = {
             i = { ["<Esc>"] = require("telescope.actions").close }
